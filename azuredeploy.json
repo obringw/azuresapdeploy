@@ -28,7 +28,7 @@
         "HANA",
         "ORACLE"
       ],
-      "defaultValue": "other",
+      "defaultValue": "ORACLE",
       "metadata": {
         "description": "The type of the database"
       }
@@ -36,11 +36,11 @@
     "sapSystemSize": {
       "type": "string",
       "allowedValues": [
-        "Small < 2.000 SAPS",
-        "Medium < 9.000 SAPS",
-        "Large < 18.000 SAPS"
+        "Small VM: E2s_v3",
+        "Medium VM: E8s_v3",
+        "Large VM: E16s_v3"
       ],
-      "defaultValue": "Small < 2.000 SAPS",
+      "defaultValue": "Medium VM: E8s_v3",
       "metadata": {
         "description": "The size of the SAP System you want to deploy."
       }
