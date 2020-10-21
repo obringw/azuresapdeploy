@@ -36,11 +36,11 @@
     "sapSystemSize": {
       "type": "string",
       "allowedValues": [
-        "Small VM: E2s_v3",
-        "Medium VM: E8s_v3",
-        "Large VM: E16s_v3"
+        "Small VM E2s_v3",
+        "Medium VM E8s_v3",
+        "Large VM E16s_v3"
       ],
-      "defaultValue": "Medium VM: E8s_v3",
+      "defaultValue": "Medium VM E8s_v3",
       "metadata": {
         "description": "The size of the SAP System you want to deploy."
       }
@@ -140,7 +140,7 @@
       }
     },
     "sizes": {
-      "Small VM: E2s_v3": {
+      "Small VM E2s_v3": {
         "HANA": {
           "vmSize": "Standard_E32s_v3",
           "disks": [
@@ -209,7 +209,7 @@
           "useFastNetwork": true
         }
       },
-      "Medium VM: E8s_v3": {
+      "Medium VM E8s_v3": {
         "HANA": {
           "vmSize": "Standard_E64s_v3",
           "disks": [
@@ -278,7 +278,7 @@
           "useFastNetwork": true
         }
       },
-      "Large VM: E16s_v3": {
+      "Large VM E16s_v3": {
         "HANA": {
           "vmSize": "Standard_M64s",
           "disks": [
@@ -375,7 +375,7 @@
       }
     },
     "sidlower": "[toLower(parameters('sapSystemId'))]",
-    "vmName": "[concat(variables('sidlower'), '-servercs')]",
+    "vmName": "[concat(variables('sidlower'), '-server')]",
     "vnetName": "[concat(variables('sidlower'), '-vnet')]",
     "publicIpName": "[concat(variables('sidlower'), '-pib')]",
     "nicName": "[concat(variables('sidlower'), '-nic')]",
