@@ -120,7 +120,7 @@
         "offer": "Oracle-Linux",
         "publisher": "Oracle",
         "OSType": "Linux"
-      },
+      }
     },
     "internalOSType": "[variables('images')[parameters('osType')].OSType]",
     "csExtension": {
@@ -193,23 +193,18 @@
               "lun": 0,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 64
             },
             {
               "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 128
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0#1#2' -names 'oracle#sapdata#oraarch' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '30,30,30#50#50'"
+            "Linux": "-luns '0' -names 'usrsap' -paths '/usr/sap'  -sizes '100'",
+            "Windows": "-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\""
           },
           "useFastNetwork": true
         }
