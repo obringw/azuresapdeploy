@@ -108,6 +108,20 @@
   },
   "variables": {
     "selectedZones": "[if(equals(parameters('availabilityZone'),0), json('null'), array(parameters('availabilityZone')))]",
+    "OracleFS": {
+        "origA": "[concat('/oracle/', parameters('sapSystemId'), 'origA')]",
+        "mirrA": "[concat('/oracle/', parameters('sapSystemId'), 'mirrA')]",
+        "origB": "[concat('/oracle/', parameters('sapSystemId'), 'origB')]",
+        "mirrB": "[concat('/oracle/', parameters('sapSystemId'), 'mirrB')]",
+        "sapdata1": "[concat('/oracle/', parameters('sapSystemId'), 'sapdata1')]",
+        "sapreorg": "[concat('/oracle/', parameters('sapSystemId'), 'sapreorg')]",
+        "saptrace": "[concat('/oracle/', parameters('sapSystemId'), 'saptrace')]",
+        "saparch": "[concat('/oracle/', parameters('sapSystemId'), 'saparch')]",
+        "sapbackup": "[concat('/oracle/', parameters('sapSystemId'), 'sapbackup')]",
+        "sapcheck": "[concat('/oracle/', parameters('sapSystemId'), 'sapcheck')]",
+        "sapprof": "[concat('/oracle/', parameters('sapSystemId'), 'sapprof')]",
+        "oraarch": "[concat('/oracle/', parameters('sapSystemId'), 'oraarch')]"
+      },
     "images": {
       "RHEL 7": {
         "sku": "7.5",
@@ -120,7 +134,7 @@
         "offer": "Oracle-Linux",
         "publisher": "Oracle",
         "OSType": "Linux"
-      }
+      },
     },
     "internalOSType": "[variables('images')[parameters('osType')].OSType]",
     "csExtension": {
@@ -193,18 +207,24 @@
               "lun": 0,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 128
             },
             {
               "lun": 1,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 512
+            },
+            {
+              "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 128
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0' -names 'usrsap' -paths '/usr/sap'  -sizes '100'",
-            "Windows": "-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\""
+            "Linux": "-luns '0#1#2' -names 'oracle#sapdata#oraarch' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '30,30,30#50#50'"
+            
           },
           "useFastNetwork": true
         }
