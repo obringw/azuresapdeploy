@@ -100,7 +100,9 @@ function createlvm()
     done
 
     log "num: $numRaidDevices paths: '$raidDevices'"
+    log "pvcreate $raidDevices"
     $(pvcreate $raidDevices)
+    log "vgcreate $vgName $raidDevices"
     $(vgcreate $vgName $raidDevices)
 
     for ((j=0; j<mountPathCount; j++))
@@ -112,7 +114,8 @@ function createlvm()
       $(lvcreate --extents $sizeLoc%ORIGIN --stripes $numRaidDevices --name $lvNameLoc $vgName)
       $(mkfs -t xfs /dev/$vgName/$lvNameLoc)
       $(mkdir -p $mountPathLoc)
-
+      
+      log "addtofstab /dev/$vgName/$lvNameLoc $mountPathLoc"
       addtofstab /dev/$vgName/$lvNameLoc $mountPathLoc
     done
 
