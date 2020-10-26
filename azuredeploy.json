@@ -365,11 +365,34 @@
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 128
+            },
+            {
+              "lun": 2,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1024
+            },
+            {
+              "lun": 3,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1024
+            },
+            {
+              "lun": 4,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 1024
+            },
+            {
+              "lun": 5,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 256
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0' -names 'usrsap' -paths '/usr/sap'  -sizes '100'",
-            "Windows": "-luns \"0\" -names \"sap\" -paths \"S\"  -sizes \"100\""
+            "Linux": "-luns '0,1#2,3,4#5' -names 'oracle#sapdata#oraarch' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '50,10,10#80#100'"
           },
           "useFastNetwork": true
         }
