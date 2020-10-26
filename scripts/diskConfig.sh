@@ -179,7 +179,7 @@ namesCount=${#namesSplit[@]}
 pathsCount=${#pathsSplit[@]}
 sizesCount=${#sizesSplit[@]}
 
-log "count $lunsCount $namesCount $pathsCount $sizesCount"
+log "count luns: $lunsCount names: $namesCount paths: $pathsCount sizes: $sizesCount"
 
 if [[ $lunsCount -eq $namesCount && $namesCount -eq $pathsCount && $pathsCount -eq $sizesCount ]]
 then
