@@ -160,12 +160,6 @@
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 64
-            },
-            {
-              "lun": 5,
-              "caching": "None",
-              "createOption": "Empty",
-              "diskSizeGB": 512
             }
           ],
           "scriptArguments": {
