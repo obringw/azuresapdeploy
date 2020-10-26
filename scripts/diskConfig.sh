@@ -72,7 +72,7 @@ function createlvm()
   local lunsCount=${#lunsA[@]}
   local mountPathCount=${#mountPathA[@]}
   local sizeCount=${#sizeA[@]}
-  log "count $lunsCount $mountPathCount $sizeCount"
+  log "count luns: $lunsCount paths: $mountPathCount sizes: $sizeCount"
   if [[ $lunsCount -gt 1 ]]
   then
     log "createlvm - creating lvm"
@@ -108,7 +108,8 @@ function createlvm()
       local mountPathLoc=${mountPathA[$j]}
       local sizeLoc=${sizeA[$j]}
       local lvNameLoc="$lvName-$j"
-      $(lvcreate --extents $sizeLoc%FREE --stripes $numRaidDevices --name $lvNameLoc $vgName)
+      log "lvcreate --extents $sizeLoc%ORIGIN --stripes $numRaidDevices --name $lvNameLoc $vgName"
+      $(lvcreate --extents $sizeLoc%ORIGIN --stripes $numRaidDevices --name $lvNameLoc $vgName)
       $(mkfs -t xfs /dev/$vgName/$lvNameLoc)
       $(mkdir -p $mountPathLoc)
 
