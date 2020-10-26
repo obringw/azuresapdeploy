@@ -214,7 +214,7 @@
             }
           ],
           "scriptArguments": {
-              "Linux": "-luns '0,1#2#3' -names 'oracle#sapdata#oraarch' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '50,10,10#75#75'"
+              "Linux": "-luns '0,1#2#3' -names 'oracle#sapdata#oraarch' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '50,10,10#100#100'"
           },
           "useFastNetwork": true
         }
