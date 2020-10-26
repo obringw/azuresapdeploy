@@ -370,19 +370,19 @@
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 512
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 512
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 512
             },
             {
               "lun": 5,
