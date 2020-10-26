@@ -12,7 +12,7 @@ This template uses Managed Disks.
 		<th>Premium Storage (Data + Log)</th>
 	</tr>
 	<tr>
-		<td>Small VM: E2s_v3</td>
+		<td>Small VM: E4s_v3</td>
 		<td>2xP20 + 1xP10</td>
 	</tr>
 	<tr>
