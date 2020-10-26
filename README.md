@@ -9,19 +9,36 @@ This template uses Managed Disks.
 <table>
 	<tr>
 		<th>Size</th>
-		<th>Premium Storage (Data + Log)</th>
+		<th>Oracle VM</th>
+		<th>HANA VM</th>
+		<th>SAP APP VM</th>
+		<th>Storage HANA</th>
+		<th>Storage Oracle</th>
+		<th>Storage SAP APP</th>
 	</tr>
 	<tr>
-		<td>Small VM: E4s_v3</td>
+		<td>Small</td>
+		<th>D8s_v3</th>
+		<th>M32ls</th>
+		<th>E8s_v3</th>
+		<td>2xP20 + 1xP10</td>
 		<td>2xP20 + 1xP10</td>
 	</tr>
 	<tr>
-		<td>Medium VM: E8s_v3</td>
-		<td>3xP20 + 1xP10</td>
+		<td>Medium</td>
+		<th>D32s_v3</th>
+		<th>M64ls</th>
+		<th>E16s_v3</th>
+		<td> tbd. </td>
+		<td> tbd. </td>
 	</tr>
 	<tr>
-		<td>Large VM: E16s_v3</td>
-		<td>3xP30 + 1xP20</td>
+		<td>Large</td>
+		<th>D64s_v3</th>
+		<th>M64s</th>
+		<th>E32s_v3</th>
+		<td> tbd. </td>
+		<td> tbd. </td>
 	</tr>
 </table>				
 
