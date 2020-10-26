@@ -87,7 +87,7 @@
     },
     "location": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
+      "defaultValue": "West Europe",
       "metadata": {
         "description": "Location for all resources."
       }
@@ -169,7 +169,7 @@
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0,1,2#3#4#5' -names 'datalog#shared#usrsap#backup' -paths '/hana/data,/hana/log#/hana/shared#/usr/sap#/hana/backup' -sizes '70,100#100#100#100'"
+            "Linux": "-luns '0,1,2#3#4' -names 'datalog#shared#usrsap' -paths '/hana/data,/hana/log#/hana/shared#/usr/sap' -sizes '70,20#100#100'"
           },
           "useFastNetwork": true
         },
