@@ -140,7 +140,7 @@
       }
     },
     "sizes": {
-      "Small VM E2s_v3": {
+      "Small": {
         "HANA": {
           "vmSize": "Standard_E4s_v3",
           "disks": [
@@ -219,7 +219,7 @@
           "useFastNetwork": true
         }
       },
-      "Medium VM E8s_v3": {
+      "Medium": {
         "HANA": {
           "vmSize": "Standard_E64s_v3",
           "disks": [
@@ -288,7 +288,7 @@
           "useFastNetwork": true
         }
       },
-      "Large VM E16s_v3": {
+      "Large": {
         "HANA": {
           "vmSize": "Standard_M64s",
           "disks": [
