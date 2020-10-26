@@ -110,13 +110,13 @@
     "selectedZones": "[if(equals(parameters('availabilityZone'),0), json('null'), array(parameters('availabilityZone')))]",
     "images": {
       "RHEL 7": {
-        "sku": "7.8",
+        "sku": "7.7",
         "offer": "RHEL-SAP",
         "publisher": "RedHat",
         "OSType": "Linux"
       },
       "Oracle Linux 7": {
-        "sku": "7.8",
+        "sku": "7.7",
         "offer": "Oracle-Linux",
         "publisher": "Oracle",
         "OSType": "Linux"
