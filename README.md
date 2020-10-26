@@ -17,26 +17,26 @@ This template uses Managed Disks.
 		<th>Storage SAP APP</th>
 	</tr>
 	<tr>
-		<td>Small</td>
-		<th>D8s_v3</th>
-		<th>M32ls</th>
-		<th>E8s_v3</th>
+		<th>Small</th>
+		<td>D8s_v3</td>
+		<td>M32ls</td>
+		<td>E8s_v3</td>
 		<td>2xP20 + 1xP10</td>
 		<td>2xP20 + 1xP10</td>
 	</tr>
 	<tr>
-		<td>Medium</td>
-		<th>D32s_v3</th>
-		<th>M64ls</th>
-		<th>E16s_v3</th>
+		<th>Medium</th>
+		<td>D32s_v3</td>
+		<td>M64ls</td>
+		<td>E16s_v3</td>
 		<td> tbd. </td>
 		<td> tbd. </td>
 	</tr>
 	<tr>
-		<td>Large</td>
-		<th>D64s_v3</th>
-		<th>M64s</th>
-		<th>E32s_v3</th>
+		<th>Large</th>
+		<td>D64s_v3</td>
+		<td>M64s</td>
+		<td>E32s_v3</td>
 		<td> tbd. </td>
 		<td> tbd. </td>
 	</tr>
