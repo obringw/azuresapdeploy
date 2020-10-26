@@ -26,7 +26,8 @@
       "type": "string",
       "allowedValues": [
         "HANA",
-        "ORACLE"
+        "ORACLE",
+        "NoDB"
       ],
       "defaultValue": "ORACLE",
       "metadata": {
@@ -90,20 +91,6 @@
       "metadata": {
         "description": "Location for all resources."
       }
-    },
-    "_artifactsLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
-      },
-      "defaultValue": "https://raw.githubusercontent.com/mimergel/sap-oracle-vm/main/"
-    },
-    "_artifactsLocationSasToken": {
-      "type": "securestring",
-      "metadata": {
-        "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
-      },
-      "defaultValue": ""
     }
   },
   "variables": {
@@ -128,14 +115,14 @@
         "Publisher": "Microsoft.Compute",
         "Name": "CustomScriptExtension",
         "Version": "1.7",
-        "script": "[uri(parameters('_artifactsLocation'), concat('scripts/diskConfig.ps1', parameters('_artifactsLocationSasToken')))]",
+        "script": "https://raw.githubusercontent.com/mimergel/sap-oracle-vm/main/scripts/diskConfig.ps1",
         "scriptCall": "powershell.exe -ExecutionPolicy bypass -File diskConfig.ps1"
       },
       "Linux": {
         "Publisher": "Microsoft.Azure.Extensions",
         "Name": "CustomScript",
         "Version": "2.0",
-        "script": "[uri(parameters('_artifactsLocation'), concat('scripts/diskConfig.sh', parameters('_artifactsLocationSasToken')))]",
+        "script": "https://raw.githubusercontent.com/mimergel/sap-oracle-vm/main/scripts/diskConfig.sh",
         "scriptCall": "sh diskConfig.sh"
       }
     },
