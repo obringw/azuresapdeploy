@@ -23,6 +23,7 @@ This template uses Managed Disks.
 		<td>E8s_v3</td>
 		<td>2xP20 + 1xP10</td>
 		<td>2xP20 + 1xP10</td>
+		<td>1xP10</td>
 	</tr>
 	<tr>
 		<th>Medium</th>
@@ -31,6 +32,7 @@ This template uses Managed Disks.
 		<td>E16s_v3</td>
 		<td> tbd. </td>
 		<td> tbd. </td>
+		<td>1xP10</td>
 	</tr>
 	<tr>
 		<th>Large</th>
@@ -39,6 +41,7 @@ This template uses Managed Disks.
 		<td>E32s_v3</td>
 		<td> tbd. </td>
 		<td> tbd. </td>
+		<td>1xP10</td>
 	</tr>
 </table>				
 
