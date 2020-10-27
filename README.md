@@ -28,19 +28,19 @@ This template uses Managed Disks.
 	<tr>
 		<th>Medium</th>
 		<td>D32s_v3</td>
+		<td> tbd. </td>
 		<td>M64ls</td>
+		<td> tbd. </td>
 		<td>E16s_v3</td>
-		<td> tbd. </td>
-		<td> tbd. </td>
 		<td>1xP10</td>
 	</tr>
 	<tr>
 		<th>Large</th>
 		<td>D64s_v3</td>
+		<td> tbd. </td>
 		<td>M64s</td>
+		<td> tbd. </td>
 		<td>E32s_v3</td>
-		<td> tbd. </td>
-		<td> tbd. </td>
 		<td>1xP10</td>
 	</tr>
 </table>				
