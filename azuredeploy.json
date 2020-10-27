@@ -135,35 +135,47 @@
               "lun": 0,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 128
             },
             {
               "lun": 1,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 128
             },
             {
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 128
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 128
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 128
+            },
+            {
+              "lun": 5,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 256
+            },
+            {
+              "lun": 6,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 128
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0,1,2#3#4' -names 'datalog#shared#usrsap' -paths '/hana/data,/hana/log#/hana/shared#/usr/sap' -sizes '70,20#100#100'"
+            "Linux": "-luns '0,1#2,3,4#5#6' -names 'data#log#shared#usrsap' -paths '/hana/data#/hana/log#/hana/shared#/usr/sap' -sizes '100#100#100#100'"
           },
           "useFastNetwork": true
         },
