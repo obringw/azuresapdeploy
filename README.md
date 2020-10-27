@@ -10,7 +10,7 @@ This template uses Managed Disks.
 	<tr>
 		<th>Size</th>
 		<th>Oracle VM</th>
-		<th>Oracle VM Storage</th>
+		<th>Oracle VM Storage (ORA+SAPDATA+ARCH+SAP)</th>
 		<th>HANA VM</th>
 		<th>HANA VM Storage (DATA+LOG+SHARE+SAP)</th>
 		<th>SAP APP VM</th>
@@ -19,7 +19,7 @@ This template uses Managed Disks.
 	<tr>
 		<th>Small</th>
 		<td>D8s_v3</td>
-		<td>2xP10 + 3xP10</td>
+		<td>2xP10+1xP20+1xP10+1xP10</td>
 		<td>M32ls</td>
 		<td>2xP10+3xP10+1xP20+1xP10</td>
 		<td>E8s_v3</td>
