@@ -166,7 +166,7 @@
               "diskSizeGB": 256
             }          ],
           "scriptArguments": {
-              "Linux": "-luns '0,1#2#3#4' -names 'oracle#sapdata#oraarch#usrsap' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch#/usr/sap' -sizes '50,10,10#100#100#100'"
+              "Linux": "[concat('-luns ''0#1,2,3,4#5,6,7#8'' -names ''usrsap#data#log#shared'' -paths ''/usr/sap#/hana/data/',parameters('sapSystemId'),'#/hana/log/',parameters('sapSystemId'),'#/hana/shared'' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
@@ -254,11 +254,12 @@
       }
     },
     "sidlower": "[toLower(parameters('sapSystemId'))]",
-    "vmName": "[concat(variables('sidlower'), '-server')]",
-    "vnetName": "[concat(variables('sidlower'), '-vnet')]",
-    "publicIpName": "[concat(variables('sidlower'), '-pib')]",
-    "nicName": "[concat(variables('sidlower'), '-nic')]",
-    "nsgName": "[concat(variables('sidlower'), '-nsg-cs')]",
+    "dbtypelower": "[toLower(parameters('dbtype'))]",
+    "vmName": "[concat(variables('dbtypelower'),'-',variables('sidlower'), '-vm')]",
+    "vnetName": "[concat(variables('vmName'), '-vnet')]",
+    "publicIpName": "[concat(variables('vmName'), '-pib')]",
+    "nicName": "[concat(variables('vmName'), '-nic')]",
+    "nsgName": "[concat(variables('vmName'), '-nsg-cs')]",
     "subnetName": "Subnet",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
