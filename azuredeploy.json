@@ -14,10 +14,11 @@
     "osType": {
       "type": "string",
       "allowedValues": [
+        "SLES 12",
         "RHEL 7",
         "Oracle Linux 7"
       ],
-      "defaultValue": "RHEL 7",
+      "defaultValue": "Oracle Linux 7",
       "metadata": {
         "description": "The type of the operating system you want to deploy."
       }
@@ -25,9 +26,7 @@
     "dbtype": {
       "type": "string",
       "allowedValues": [
-        "HANA",
-        "ORACLE",
-        "NoDB"
+        "ORACLE"
       ],
       "defaultValue": "ORACLE",
       "metadata": {
@@ -96,6 +95,12 @@
   "variables": {
     "selectedZones": "[if(equals(parameters('availabilityZone'),0), json('null'), array(parameters('availabilityZone')))]",
     "images": {
+      "SLES 12": {
+        "sku": "gen2",
+        "offer": "sles-sap-12-sp5",
+        "publisher": "SUSE",
+        "OSType": "Linux"
+      },
       "RHEL 7": {
         "sku": "77sap-gen2",
         "offer": "RHEL-SAP",
@@ -128,57 +133,6 @@
     },
     "sizes": {
       "Small": {
-        "HANA": {
-          "vmSize": "Standard_M32ts",
-          "disks": [
-            {
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 128
-            },
-            {
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 128
-            },
-            {
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 128
-            },
-            {
-              "lun": 3,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 128
-            },
-            {
-              "lun": 4,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 128
-            },
-            {
-              "lun": 5,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 256
-            },
-            {
-              "lun": 6,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 128
-            }
-          ],
-          "scriptArguments": {
-            "Linux": "-luns '0,1#2,3,4#5#6' -names 'data#log#shared#usrsap' -paths '/hana/data#/hana/log#/hana/shared#/usr/sap' -sizes '100#100#100#100'"
-          },
-          "useFastNetwork": true
-        },
         "ORACLE": {
           "vmSize": "Standard_D8s_v3",
           "disks": [
@@ -218,51 +172,6 @@
         }
       },
       "Medium": {
-        "HANA": {
-          "vmSize": "Standard_M64ls",
-          "disks": [
-            {
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 3,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 4,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 64
-            },
-            {
-              "lun": 5,
-              "caching": "None",
-              "createOption": "Empty",
-              "diskSizeGB": 1024
-            }
-          ],
-          "scriptArguments": {
-            "Linux": "-luns '0,1,2#3#4#5' -names 'datalog#shared#usrsap#backup' -paths '/hana/data,/hana/log#/hana/shared#/usr/sap#/hana/backup' -sizes '70,100#100#100#100'"
-          },
-          "useFastNetwork": true
-        },
         "ORACLE": {
           "vmSize": "Standard_D16s_v3",
           "disks": [
@@ -297,77 +206,6 @@
         }
       },
       "Large": {
-        "HANA": {
-          "vmSize": "Standard_M64s",
-          "disks": [
-            {
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 3,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 4,
-              "caching": "None",
-              "writeAcceleratorEnabled": "true",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 5,
-              "caching": "None",
-              "writeAcceleratorEnabled": "true",
-              "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
-              "lun": 6,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1024
-            },
-            {
-              "lun": 7,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 64
-            },
-            {
-              "lun": 8,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1024
-            },
-            {
-              "lun": 9,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 1024
-            }
-          ],
-          "scriptArguments": {
-            "Linux": "-luns '0,1,2,3#4,5#6#7#8,9' -names 'data#log#shared#usrsap#backup' -paths '/hana/data#/hana/log#/hana/shared#/usr/sap#/hana/backup' -sizes '100#100#100#100#100'"
-          },
-          "useFastNetwork": true
-        },
         "ORACLE": {
           "vmSize": "Standard_D64s_v3",
           "disks": [
