@@ -110,7 +110,7 @@ function createlvm()
       local mountPathLoc=${mountPathA[$j]}
       local sizeLoc=${sizeA[$j]}
       local lvNameLoc="$lvName-$j"
-      log "lvcreate --extents $sizeLoc%VG --stripes $numRaidDevices --name $lvNameLoc $vgName"
+      log "lvcreate --extents $sizeLoc%FREE --stripes $numRaidDevices --name $lvNameLoc $vgName"
       $(lvcreate --extents $sizeLoc%VG --stripes $numRaidDevices --name $lvNameLoc $vgName)
       $(mkfs -t xfs /dev/$vgName/$lvNameLoc)
       $(mkdir -p $mountPathLoc)
