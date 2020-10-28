@@ -180,7 +180,7 @@
           "useFastNetwork": true
         },
         "ORACLE": {
-          "vmSize": "Standard_D4s_v3",
+          "vmSize": "Standard_D8s_v3",
           "disks": [
             {
               "lun": 0,
