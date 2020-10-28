@@ -13,17 +13,17 @@ This template takes a minimum amount of parameters and deploys a VM that is cust
 	<tr>
 		<th>Small</th>
 		<td>D8s_v3 (8CPU/32GB)</td>
-		<td>2xP10 + 1xP20 + 1xP10 + 1xP10</td>
+		<td>1xP6(64GB) + 2xP10(128GB) + 2xP6(64GB) + 1xP6(64GB)</td>
 	</tr>
 	<tr>
 		<th>Medium</th>
 		<td>D32s_v3 (32CPU/128GB)</td>
-		<td> tbd. </td>
+		<td>1xP6(64GB) + 2xP15(256GB) + 2xP10(128GB) + 1xP10(128GB)</td>
 	</tr>
 	<tr>
 		<th>Large</th>
 		<td>D64s_v3 (64CPU/256GB)</td>
-		<td> tbd. </td>
+		<td>1xP10(128GB) + 2xP20(512GB) + 2xP10(128GB) + 1xP10(128GB)</td>
 	</tr>
 </table>				
 
