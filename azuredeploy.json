@@ -180,7 +180,7 @@
           "useFastNetwork": true
         },
         "ORACLE": {
-          "vmSize": "Standard_D4s_v3",
+          "vmSize": "Standard_D8s_v3",
           "disks": [
             {
               "lun": 0,
@@ -197,7 +197,7 @@
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 256
             },
             {
               "lun": 3,
@@ -209,7 +209,7 @@
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 256
             }          ],
           "scriptArguments": {
               "Linux": "-luns '0,1#2#3#4' -names 'oracle#sapdata#oraarch#usrsap' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch#/usr/sap' -sizes '50,10,10#100#100#100'"
