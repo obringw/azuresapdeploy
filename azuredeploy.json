@@ -146,34 +146,22 @@
               "lun": 1,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 256
             },            {
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 64
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 64
-            },
-            {
-              "lun": 4,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 64
-            },
-            {
-              "lun": 5,
-              "caching": "ReadOnly",
-              "createOption": "Empty",
-              "diskSizeGB": 64
             }
           ],
           "scriptArguments": {
-              "Linux": "[concat('-luns ''0#1,2,3,4#5,6,7#8'' -names ''oracle#sapdata#oraarch#sapexe'' -paths ''/usr/sap#/hana/data/',parameters('sapSystemId'),'#/hana/log/',parameters('sapSystemId'),'#/hana/shared'' -sizes ''100#100#100#100''')]"
+              "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
