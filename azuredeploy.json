@@ -161,7 +161,7 @@
             }
           ],
           "scriptArguments": {
-              "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle/LOL,/home/LOL#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
+              "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
