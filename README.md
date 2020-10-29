@@ -23,7 +23,7 @@ This template takes a minimum amount of parameters and deploys a VM that is cust
 	<tr>
 		<th>Large</th>
 		<td>D64s_v3 (64CPU/256GB)</td>
-		<td>1xP10(128GB) + 1xP30(1TB) + 1xP15(256GB) + 1xP10(128GB)</td>
+		<td>1xP10(128GB) + 2xP20(512GB) + 1xP15(256GB) + 1xP10(128GB)</td>
 	</tr>
 </table>				
 
