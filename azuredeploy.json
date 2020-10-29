@@ -112,7 +112,8 @@
         "offer": "Oracle-Linux",
         "publisher": "Oracle",
         "OSType": "Linux"
-      },
+      }
+    },
     "internalOSType": "[variables('images')[parameters('osType')].OSType]",
     "csExtension": {
       "Windows": {
@@ -173,24 +174,24 @@
               "lun": 0,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 128
             },
             {
               "lun": 1,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 128
             },            {
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 1024
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 256
             }
           ],
           "scriptArguments": {
@@ -213,23 +214,29 @@
               "lun": 1,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 512
             },
             {
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 256
+              "diskSizeGB": 512
             },
             {
               "lun": 3,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 256
+            },
+            {
+              "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 128
             }
           ],
           "scriptArguments": {
-            "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
+            "Linux": "[concat('-luns ''0#1,2#3#4'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
