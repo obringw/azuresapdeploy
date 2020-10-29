@@ -112,8 +112,7 @@
         "offer": "Oracle-Linux",
         "publisher": "Oracle",
         "OSType": "Linux"
-      }
-    },
+      },
     "internalOSType": "[variables('images')[parameters('osType')].OSType]",
     "csExtension": {
       "Windows": {
@@ -195,7 +194,7 @@
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0#1#2#3' -names 'oracle#sapdata#oraarch#sapexe' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '50,10,10#100#100'"
+            "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
@@ -230,7 +229,7 @@
             }
           ],
           "scriptArguments": {
-            "Linux": "-luns '0#1#2#3' -names 'oracle#sapdata#oraarch#sapexe' -paths '/oracle/ORA/12,/oracle/ORA/origlogA,/oracle/ORA/origlogB#/oracle/ORA/sapdata1#/oracle/ORA/oraarch' -sizes '50,10,10#80#100'"
+            "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
           },
           "useFastNetwork": true
         }
