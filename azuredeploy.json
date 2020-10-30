@@ -94,6 +94,7 @@
   },
   "variables": {
     "selectedZones": "[if(equals(parameters('availabilityZone'),0), json('null'), array(parameters('availabilityZone')))]",
+    "sidlower": "[toLower(parameters('sapSystemId'))]",
     "images": {
       "SLES 12": {
         "sku": "gen2",
@@ -144,12 +145,12 @@
             },
             {
               "lun": 1,
-              "caching": "ReadOnly",
+              "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 256
+              "diskSizeGB": 64
             },            {
               "lun": 2,
-              "caching": "ReadOnly",
+              "caching": "None",
               "createOption": "Empty",
               "diskSizeGB": 64
             },
@@ -157,11 +158,29 @@
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
+              "diskSizeGB": 128
+            },
+            {
+              "lun": 4,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 128
+            },
+            {
+              "lun": 5,
+              "caching": "None",
+              "createOption": "Empty",
+              "diskSizeGB": 64
+            },
+            {
+              "lun": 6,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
               "diskSizeGB": 64
             }
           ],
           "scriptArguments": {
-              "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
+               "Linux": "[concat('-luns ''0#1#2#3,4#5#6'' -names ''oracle#origlogA#origlogB#sapdata1#oraarch#sapexe'' -paths ''/oracle,/oracle/client/18.2,/oracle/18.2,/home/oracle,/home/ora',variables('sidlower'),',/oracle/',parameters('sapSystemId'),'/18.2#/oracle/',parameters('sapSystemId'),'/origlogA,/oracle/',parameters('sapSystemId'),'/mirrlogB#/oracle/',parameters('sapSystemId'),'/origlogB,/oracle/',parameters('sapSystemId'),'/mirrlogA#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),',/usr/sap/',parameters('sapSystemId'),' '' -sizes ''60,3,20,3,3,10#50,50#50,50#100#100#50,50''')]"
           },
           "useFastNetwork": true
         }
@@ -174,28 +193,46 @@
               "lun": 0,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 64
             },
             {
               "lun": 1,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 64
             },            {
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 64
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
               "diskSizeGB": 256
+            },
+            {
+              "lun": 4,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 256
+            },
+            {
+              "lun": 5,
+              "caching": "None",
+              "createOption": "Empty",
+              "diskSizeGB": 128
+            },
+            {
+              "lun": 6,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 64
             }
           ],
           "scriptArguments": {
-            "Linux": "[concat('-luns ''0#1#2#3'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
+             "Linux": "[concat('-luns ''0#1#2#3,4#5#6'' -names ''oracle#origlogA#origlogB#sapdata1#oraarch#sapexe'' -paths ''/oracle,/oracle/client/18.2,/oracle/18.2,/home/oracle,/home/ora',variables('sidlower'),',/oracle/',parameters('sapSystemId'),'/18.2#/oracle/',parameters('sapSystemId'),'/origlogA,/oracle/',parameters('sapSystemId'),'/mirrlogB#/oracle/',parameters('sapSystemId'),'/origlogB,/oracle/',parameters('sapSystemId'),'/mirrlogA#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),',/usr/sap/',parameters('sapSystemId'),' '' -sizes ''60,3,20,3,3,10#50,50#50,50#100#100#50,50''')]"
           },
           "useFastNetwork": true
         }
@@ -208,41 +245,51 @@
               "lun": 0,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 64
             },
             {
               "lun": 1,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
-            },
-            {
+              "diskSizeGB": 64
+            },            {
               "lun": 2,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 512
+              "diskSizeGB": 64
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 256
+              "diskSizeGB": 512
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 512
+            },
+            {
+              "lun": 5,
+              "caching": "None",
+              "createOption": "Empty",
+              "diskSizeGB": 256
+            },
+            {
+              "lun": 6,
+              "caching": "ReadOnly",
+              "createOption": "Empty",
+              "diskSizeGB": 64
             }
           ],
           "scriptArguments": {
-            "Linux": "[concat('-luns ''0#1,2#3#4'' -names ''oracle#sapdata1#oraarch#sapexe'' -paths ''/oracle#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),' '' -sizes ''100#100#100#100''')]"
+             "Linux": "[concat('-luns ''0#1#2#3,4#5#6'' -names ''oracle#origlogA#origlogB#sapdata1#oraarch#sapexe'' -paths ''/oracle,/oracle/client/18.2,/oracle/18.2,/home/oracle,/home/ora',variables('sidlower'),',/oracle/',parameters('sapSystemId'),'/18.2#/oracle/',parameters('sapSystemId'),'/origlogA,/oracle/',parameters('sapSystemId'),'/mirrlogB#/oracle/',parameters('sapSystemId'),'/origlogB,/oracle/',parameters('sapSystemId'),'/mirrlogA#/oracle/',parameters('sapSystemId'),'/sapdata1#/oracle/',parameters('sapSystemId'),'/oraarch#/sapmnt/',parameters('sapSystemId'),',/usr/sap/',parameters('sapSystemId'),' '' -sizes ''60,3,20,3,3,10#50,50#50,50#100#100#50,50''')]"
           },
           "useFastNetwork": true
         }
       }
     },
-    "sidlower": "[toLower(parameters('sapSystemId'))]",
     "dbtypelower": "[toLower(parameters('dbtype'))]",
     "vmName": "[concat(variables('dbtypelower'),'-',variables('sidlower'), '-vm')]",
     "vnetName": "[concat(variables('vmName'), '-vnet')]",
