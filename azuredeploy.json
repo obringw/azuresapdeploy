@@ -147,24 +147,24 @@
               "lun": 1,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 1
             },            {
               "lun": 2,
               "caching": "None",
               "createOption": "Empty",
-              "diskSizeGB": 64
+              "diskSizeGB": 1
             },
             {
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 1024
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 128
+              "diskSizeGB": 1024
             },
             {
               "lun": 5,
