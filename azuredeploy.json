@@ -70,7 +70,7 @@
     },
     "subnetId": {
       "type": "string",
-      "defaultValue": "/subscriptions/35b67b4c-4fd4-4f0b-997c-bbb82032d45d/resourceGroups/SAPonAzureTrial/providers/Microsoft.Network/virtualNetworks/SAPDemoEnvironmentNetwork/subnets/sapdevsubnet",
+      "defaultValue": "/subscriptions/062ab761-8f9e-4a10-9d08-25f39130c48a/resourceGroups/rg-network-prod-gwc/providers/Microsoft.Network/virtualNetworks/vnet-sap-prod-gwc/subnets/snet-poc-prod-gwc-001",
       "metadata": {
         "description": "The id of the subnet you want to use."
       }
@@ -158,13 +158,13 @@
               "lun": 3,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 256
             },
             {
               "lun": 4,
               "caching": "ReadOnly",
               "createOption": "Empty",
-              "diskSizeGB": 1024
+              "diskSizeGB": 256
             },
             {
               "lun": 5,
